@@ -1,13 +1,13 @@
-#ifndef FT_PRINTF
-#define FT_PRINTF
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
 
-#include <stdio.h>
-#include <unistd.h>
-#include <stdarg.h>
+# include <unistd.h>
+# include <stdarg.h>
+# include <stdlib.h>
 
-void ft_putstr(char *str);
-void ft_putchar(char c);
-void ft_putnbr(int n);
+void	ft_putchar(char c);
+void	ft_putstr(char *s);
+void	ft_putnbr(int n);
 
 
 #endif
