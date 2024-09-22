@@ -8,6 +8,6 @@
 void	ft_putchar(char c);
 void	ft_putstr(char *s);
 void	ft_putnbr(int n);
-
+size_t ft_strlen(const char* str);
 
 #endif

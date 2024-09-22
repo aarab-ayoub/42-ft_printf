@@ -3,74 +3,61 @@
 int ft_printf(const char *format, ...)
 {
     size_t i = 0;
-    size_t j = 0;
+    int count = 0;
     va_list ptr;
     va_start(ptr, format);
 
     if (!format)
         return 0;
-    while (format)
+    while (format[i] != '\0')
     {
         if (format[i] == '%' && format[i + 1] != '\0')
         {
-            j = i + 1;   
-            if (format[j] == 'c' && format[j + 1] == '\0')
+            i++;
+            if (format[i] == 'c')
             {
                 char c = va_arg(ptr, int);
                 ft_putchar(c);
+                count++;
             }
-            else if (format[j] == 's' && format[j + 1] == '\0')
+            else if (format[i] == 's')
             {
                 char *str = va_arg(ptr, char *);
                 ft_putstr(str);
+                count += ft_strlen(str);
             }
         }
         else
-            return 0;
+        {
+            ft_putchar(format[i]);
+            count++;
+        }
         i++;
     }
     va_end(ptr);
+    return count;
 }
 
-int main()
+
+int main(void)
 {
-    // Test character printing
-    ft_printf("%c", 'A');
-    ft_putchar('\n'); // Expected output: A
+    // Test 1: Simple string
+    ft_printf("Hello, World!\n");
 
-    ft_printf("%c", 'Z');
-    ft_putchar('\n'); // Expected output: Z
+    // Test 2: Single character with %c
+    ft_printf("Character: %c\n", 'A');
 
-    ft_printf("%c", '!');
-    ft_putchar('\n'); // Expected output: !
+    // Test 3: String with %s
+    ft_printf("String: %s\n", "42 is awesome");
 
-    // Test string printing
-    ft_printf("%s", "Hello, World!");
-    ft_putchar('\n'); // Expected output: Hello, World!
+    // Test 4: Mix of regular text, %c, and %s
+    ft_printf("Mixed: %c and %s and %c\n", 'X', "Hello", 'Z');
 
-    ft_printf("%s", "ft_printf test");
-    ft_putchar('\n'); // Expected output: ft_printf test
+    // Test 5: Empty string
+    ft_printf("Empty string: '%s'\n", "");
 
-    ft_printf("%s", "");
-    ft_putchar('\n'); // Expected output: (nothing)
-
-    // Edge cases
-    ft_printf("%c", '\0'); // Test null character
-    ft_putchar('\n'); // Expected output: (nothing)
-
-    ft_printf("%s", NULL); // Test null string
-    ft_putchar('\n'); // Expected output: (nothing)
-
-    // Invalid format cases
-    ft_printf("%x", 'A'); // Invalid format specifier
-    ft_putchar('\n'); // Expected output: (nothing or error)
-
-    ft_printf("%c"); // Missing argument for 'c'
-    ft_putchar('\n'); // Expected output: (nothing or error)
-
-    // Mixed test case
-    ft_printf("%cs", 'X', "Mixing formats");
-    ft_putchar('\n'); // Expected output: XMixing formats
+    // Test 6: Multiple %c in a row
+    ft_printf("Chars: %c%c%c%c%c\n", 'H', 'E', 'L', 'L', 'O');
 
     return 0;
 }
