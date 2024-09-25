@@ -26,6 +26,12 @@ int ft_printf(const char *format, ...)
                 ft_putstr(str);
                 count += ft_strlen(str);
             }
+            else if (format[i] == 'd' || format[i] == 'i')
+            {
+                int c = va_arg(ptr, int);
+                ft_putnbr(c);
+                count++;
+            }
         }
         else
         {
@@ -41,23 +47,10 @@ int ft_printf(const char *format, ...)
 
 int main(void)
 {
-    // Test 1: Simple string
-    ft_printf("Hello, World!\n");
-
-    // Test 2: Single character with %c
-    ft_printf("Character: %c\n", 'A');
-
-    // Test 3: String with %s
-    ft_printf("String: %s\n", "42 is awesome");
-
-    // Test 4: Mix of regular text, %c, and %s
     ft_printf("Mixed: %c and %s and %c\n", 'X', "Hello", 'Z');
 
-    // Test 5: Empty string
-    ft_printf("Empty string: '%s'\n", "");
-
-    // Test 6: Multiple %c in a row
     ft_printf("Chars: %c%c%c%c%c\n", 'H', 'E', 'L', 'L', 'O');
-
+    ft_printf("the number %d%d%d%d%d\n", 42, 0xA, 13221341, 432, -341);
+    // ft_printf("the number %d\n",0xff);
     return 0;
 }
