@@ -1,37 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_putu.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ayaarab <ayaarab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/04 13:50:43 by ayaarab           #+#    #+#             */
-/*   Updated: 2024/11/10 16:37:55 by ayaarab          ###   ########.fr       */
+/*   Created: 2024/11/10 16:32:21 by ayaarab           #+#    #+#             */
+/*   Updated: 2024/11/10 16:32:30 by ayaarab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_putnbr(int n)
+int	ft_putu(unsigned int i)
 {
 	int	count;
 
 	count = 0;
-	if (n == -2147483648)
-		return (ft_putstr("-2147483648"));
-	if (n < 0)
+	if (i > 9)
 	{
-		count += ft_putchar('-');
-		count += ft_putnbr(-n);
-	}
-	else if (n <= 9)
-	{
-		count += ft_putchar(n + '0');
+		count += ft_putu(i / 10);
+		count += ft_putu(i % 10);
 	}
 	else
-	{
-		count += ft_putnbr(n / 10);
-		count += ft_putchar(n % 10 + '0');
-	}
+		count += ft_putchar(i + '0');
 	return (count);
 }
