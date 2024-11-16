@@ -6,7 +6,7 @@
 /*   By: ayaarab <ayaarab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 13:50:29 by ayaarab           #+#    #+#             */
-/*   Updated: 2024/11/10 16:31:09 by ayaarab          ###   ########.fr       */
+/*   Updated: 2024/11/12 16:32:38 by ayaarab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define FT_PRINTF_H
 
 # include <stdarg.h>
-# include <stdlib.h>
 # include <unistd.h>
 
 int	ft_putchar(int c);

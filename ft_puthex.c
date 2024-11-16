@@ -6,7 +6,7 @@
 /*   By: ayaarab <ayaarab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 13:28:12 by ayaarab           #+#    #+#             */
-/*   Updated: 2024/11/10 16:37:49 by ayaarab          ###   ########.fr       */
+/*   Updated: 2024/11/12 16:03:28 by ayaarab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,3 @@ int	ft_puthex(unsigned int n, int a)
 	count += ft_putchar(hex[n % 16]);
 	return (count);
 }
-// int main()
-// {
-// 	ft_puthex(0xff);
-// 	return (0);
-// }

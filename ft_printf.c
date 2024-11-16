@@ -6,7 +6,7 @@
 /*   By: ayaarab <ayaarab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/10 15:34:55 by ayaarab           #+#    #+#             */
-/*   Updated: 2024/11/10 16:37:44 by ayaarab          ###   ########.fr       */
+/*   Updated: 2024/11/16 11:34:24 by ayaarab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int	ft_printf(const char *format, ...)
 	int		count;
 	int		i;
 
-	if (!format)
+	if (write(1, 0, 0) == -1)
 		return (-1);
 	va_start(ptr, format);
 	i = 0;
@@ -58,5 +58,6 @@ int	ft_printf(const char *format, ...)
 			count += ft_putchar(format[i]);
 		i++;
 	}
+	va_end(ptr);
 	return (count);
 }
