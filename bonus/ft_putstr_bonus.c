@@ -1,28 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_putstr_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ayaarab <ayaarab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/04 13:50:29 by ayaarab           #+#    #+#             */
-/*   Updated: 2024/11/19 12:12:05 by ayaarab          ###   ########.fr       */
+/*   Created: 2024/11/10 16:32:16 by ayaarab           #+#    #+#             */
+/*   Updated: 2024/11/17 13:43:36 by ayaarab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "ft_printf_bonus.h"
 
-# include <stdarg.h>
-# include <unistd.h>
+int	ft_putstr(const char *str)
+{
+	int	i;
 
-int	ft_putchar(int c);
-int	ft_putstr(const char *s);
-int	ft_putnbr(int n);
-int	ft_strlen(const char *str);
-int	ft_putu(unsigned int i);
-int	ft_puthex(unsigned int n, int a);
-int	ft_printf(const char *format, ...);
-int	ft_putp(unsigned long n);
-
-#endif   
+	i = 0;
+	if (!str)
+	{
+		write(1, "(null)", 6);
+		return (6);
+	}
+	write(1, str, ft_strlen(str));
+	return (ft_strlen(str));
+}

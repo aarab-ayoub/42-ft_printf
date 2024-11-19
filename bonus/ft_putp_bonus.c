@@ -1,28 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_putp_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ayaarab <ayaarab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/04 13:50:29 by ayaarab           #+#    #+#             */
-/*   Updated: 2024/11/19 12:12:05 by ayaarab          ###   ########.fr       */
+/*   Created: 2024/11/10 16:30:52 by ayaarab           #+#    #+#             */
+/*   Updated: 2024/11/17 13:43:36 by ayaarab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "ft_printf_bonus.h"
 
-# include <stdarg.h>
-# include <unistd.h>
+int	ft_putp(unsigned long n)
+{
+	int		count;
+	char	*hex;
 
-int	ft_putchar(int c);
-int	ft_putstr(const char *s);
-int	ft_putnbr(int n);
-int	ft_strlen(const char *str);
-int	ft_putu(unsigned int i);
-int	ft_puthex(unsigned int n, int a);
-int	ft_printf(const char *format, ...);
-int	ft_putp(unsigned long n);
-
-#endif   
+	hex = "0123456789abcdef";
+	count = 0;
+	if (n >= 16)
+		count += ft_putp(n / 16);
+	count += ft_putchar(hex[n % 16]);
+	return (count);
+}
